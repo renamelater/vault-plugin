@@ -1,0 +1,6 @@
+{
+  "name": "vault",
+  "description": "Obsidian second-brain workflow: compress sessions, ingest content, save specs and PRDs, search history, manage projects.",
+  "author": { "name": "Morris Wang" },
+  "keywords": ["obsidian", "second-brain", "notes", "pkm"]
+}

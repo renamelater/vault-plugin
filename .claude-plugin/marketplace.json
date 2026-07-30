@@ -1,0 +1,13 @@
+{
+  "name": "morriswang",
+  "owner": { "name": "Morris Wang", "email": "contact@morriswang.com" },
+  "description": "Morris's personal Claude Code plugins.",
+  "plugins": [
+    {
+      "name": "vault",
+      "source": "./",
+      "description": "Obsidian second-brain workflow: compress sessions, ingest content, save specs and PRDs, search history, manage projects.",
+      "strict": false
+    }
+  ]
+}
