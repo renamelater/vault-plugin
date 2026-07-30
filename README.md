@@ -7,7 +7,7 @@ Works on **your** vault: run `/vault:setup` once and the skills bootstrap the st
 ## Install
 
 ```
-/plugin marketplace add ricAiAWRbXRVh/vault-plugin
+/plugin marketplace add renamelater/vault-plugin
 /plugin install vault@morriswang
 ```
 
