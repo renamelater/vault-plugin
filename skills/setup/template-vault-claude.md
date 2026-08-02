@@ -85,6 +85,8 @@ Read both `tasks/current.md` files, check the most recent session file across Ac
 | `/vault:search-sessions` | Looking up what was done in a past session |
 | `/vault:ingest` | Save external content (transcripts, research, articles…) into the project |
 
+**Note on `/vault:new-project` and `/vault:relink`:** these two are user-only (`disable-model-invocation`) — Claude cannot see or invoke them, and they won't appear in Claude's skill list. They only run when the user sends the command as its own message. If the user mentions one mid-sentence, it did not fire and Claude cannot fire it — don't claim the command doesn't exist; instead say it's user-only and ask them to type the bare `/vault:...` command.
+
 ## Linking Rules
 
 Notes are connected with Obsidian's `[[filename]]` link syntax (filename without `.md`). The skills create links automatically — follow the same rules when saving manually:

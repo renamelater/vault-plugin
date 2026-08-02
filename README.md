@@ -37,7 +37,7 @@ Model-invoked — these fire automatically when the situation matches (or by nam
 | `/vault:setup` | First-time vault initialization |
 | `/vault:connect-obsidian` | Wiring up the optional Obsidian MCP (guided install of the Local REST API plugin) |
 
-User-invoked only (type the name):
+User-invoked only — these carry `disable-model-invocation`, which hides them from the model entirely. Claude never fires them on its own and won't list them among its skills. Send the command as its own message; mentioned mid-sentence it arrives as plain text, and Claude — seeing no such skill — may tell you it doesn't exist:
 
 | Skill | Use |
 |---|---|
