@@ -21,7 +21,7 @@ Point it at your existing Obsidian vault (or let it create one). It scaffolds th
 
 ## The system
 
-Each project gets a folder in the vault with a **hub note** (index), `sessions/` (what happened), and `docs/` (specs, PRDs, ingested content). Code folders link to their vault project via a `## Vault` section in the code folder's `CLAUDE.md`, so skills know where to file things no matter where you run them.
+Each project gets a folder in the vault with a **hub note** (index), `sessions/` (what happened), and `docs/` (specs, PRDs, ingested content, and working documents authored during sessions — everything files into a type folder under `docs/`, nothing loose at the project root). Code folders link to their vault project via a `## Vault` section in the code folder's `CLAUDE.md`, so skills know where to file things no matter where you run them.
 
 ## Skills
 

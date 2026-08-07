@@ -106,6 +106,7 @@ Always read the most recent file in the vault sessions/ folder to see where we l
 - At the end of every session, run /vault:compress to save a session log
 - When a design decision is made, run /vault:spec to document it
 - When a product requirement is defined, run /vault:prd to document it
+- Documents written for this project (meeting prep, question lists, research, proposals, working notes) go in the vault under docs/ in the matching type folder (docs/prep/, docs/research/, docs/notes/), never at the vault project root
 ```
 
 ## Step 5: Confirm

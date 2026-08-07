@@ -57,6 +57,7 @@ Every project folder has a **hub note named after the project** (e.g. `my-projec
 | Specs (design decisions) | `[bucket]/projects/[project]/docs/specs/YYYYMMDD-HHMM-title.md` |
 | PRDs | `[bucket]/projects/[project]/docs/prds/YYYYMMDD-HHMM-title.md` |
 | Ingested content | `[bucket]/projects/[project]/docs/[type-folder]/YYYYMMDD-HHMM-title.md` — type-folder: `transcripts/`, `research/`, `articles/`, `interviews/`, `brainstorms/`, `feedback/`, `prep/`, `notes/` |
+| Self-authored working docs (meeting prep, question lists, research, proposals) | `[bucket]/projects/[project]/docs/[type-folder]/` — same taxonomy as ingested content; living documents that update across sessions keep a plain name with no timestamp prefix. NEVER at the project root |
 | Non-project content | `[bucket]/general/[type-folder]/` |
 | Active tasks | `[bucket]/tasks/current.md` |
 | Completed tasks | `[bucket]/tasks/archive.md` (move, don't delete) |

@@ -27,7 +27,13 @@ If neither resolves, return to the calling skill's no-match handling.
 
 The project **hub note** — its status and index file — is `[vault]/[bucket]/projects/[slug]/[slug].md`, falling back to `README.md` in older projects.
 
-## File access
+## File placement
+
+A project folder keeps exactly three things at its root: the hub note, `sessions/`, and `docs/`. Every other file lives in a type folder under `docs/` — `specs/`, `prds/`, and the ingest taxonomy (`transcripts/`, `research/`, `articles/`, `interviews/`, `brainstorms/`, `feedback/`, `prep/`, `notes/`).
+
+This applies to **self-authored** documents, not just ingested ones. Talking points, running question lists, requirements maps, proposals, research writeups — anything written for the project during a session files under `docs/[type]/` exactly as if it had been ingested: meeting prep and question lists → `docs/prep/`, research → `docs/research/`, anything else → `docs/notes/`. Never write a file at the project root or loose at `docs/` root, and add an index line for it under the matching hub-note section (`## Prep`, `## Research`, `## Notes`, …).
+
+Living documents that get updated across sessions (a running question list, a requirements map) keep a plain descriptive filename with no timestamp prefix; point-in-time records keep the `YYYYMMDD-HHMM-` prefix.
 
 Skills name `obsidian_*` MCP tools (from mcp-obsidian). Any Obsidian MCP is **optional** — the vault is plain Markdown on disk. When a named tool is unavailable, use the equivalent tool from the Local REST API plugin's built-in MCP server (if connected), or plain file tools on `[vault]/...` paths:
 
