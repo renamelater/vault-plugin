@@ -58,7 +58,7 @@ User-invoked only — these carry `disable-model-invocation`, which hides them f
 
 ## Updating
 
-No `version` field — every commit to this repo is a new version:
+Releases are explicit. `.claude-plugin/plugin.json` carries a `version` field that is bumped when a release is cut, and each release is tagged in git. Commits between releases do not change the version.
 
 ```
 /plugin update vault@morriswang
