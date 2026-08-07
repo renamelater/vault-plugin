@@ -1,6 +1,6 @@
 ---
 name: ingest
-description: Ingest external content into the Obsidian vault. Use when the user says "ingest" or "save this to the vault", or pastes external content (transcript, research, article, interview) without other instructions.
+description: Ingest external content into the Obsidian vault. Use when the user says "ingest" or "save this to the vault", pastes external content (transcript, research, article, interview) without other instructions, or shares a Notion URL.
 ---
 
 # Ingest External Content into the Vault
@@ -10,6 +10,7 @@ When invoked, do the following:
 ## Step 1: Read the Content
 
 - The user will paste content directly into the conversation, or attach/reference a file (read attached files from wherever the current environment surfaces them)
+- **Notion URL?** When the content is a Notion URL (`notion.so`, `*.notion.site`, `app.notion.com`), read `notion.md` in this skill's folder and follow it — it owns fetching and the shape gate, and says where to rejoin these steps
 - If the content isn't obvious in the current message, ask: "What would you like to ingest?"
 - Read the full content before classifying
 
@@ -32,7 +33,7 @@ Identify what kind of content this is. Use these **canonical type names** — ne
 
 ## Step 3: Determine the Vault Project (in order)
 
-Follow `../../references/resolve-project.md` (relative to this skill's folder) to resolve the **bucket** and **project slug** — read that file now, do not guess the project. If it resolves, continue to Step 4. If no match (or the cwd isn't a project directory):
+Follow `../../references/resolve-project.md` (relative to this skill's folder) to resolve the **bucket** and **project slug** — read that file now, do not guess the project. If it resolves, sanity-check the match before continuing: when the content's subject clearly belongs to a different vault project than the resolved one (team content ingested from an unrelated repo, a Notion URL pasted mid-task), name both projects and confirm the target before filing. Then continue to Step 4. If no match (or the cwd isn't a project directory):
 
 ### No match found
 Stop and tell the user:

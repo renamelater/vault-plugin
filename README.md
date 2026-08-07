@@ -30,7 +30,8 @@ Model-invoked — these fire automatically when the situation matches (or by nam
 | Skill | Fires when |
 |---|---|
 | `/vault:compress` | Session ending — saves a session log, reconciles action items |
-| `/vault:ingest` | External content pasted (transcript, research, article, interview) |
+| `/vault:ingest` | External content pasted (transcript, research, article, interview) — or a Notion URL shared |
+| `/vault:publish` | "Publish this to Notion" — turns a vault doc into a Notion page, updates it in place on republish |
 | `/vault:spec` | A design decision was settled — documents it |
 | `/vault:prd` | Product requirements were defined — documents them |
 | `/vault:search-sessions` | Recalling what was done or decided in a past session |
@@ -44,9 +45,13 @@ User-invoked only — these carry `disable-model-invocation`, which hides them f
 | `/vault:new-project` | Set up a new work or personal project (code or knowledge-only) |
 | `/vault:relink` | Point a code folder at an existing vault project |
 
+## Notion
+
+`/vault:ingest` accepts Notion URLs (single pages, page trees behind an explicit selection gate, databases as one curated file) and `/vault:publish` mirrors vault documents to Notion pages with a drift check before every overwrite. Both need a Notion MCP: on claude.ai or the desktop app enable the **Notion connector** in Settings → Connectors; on the CLI run `claude mcp add --transport http notion https://mcp.notion.com/mcp`. Auth is the MCP's own OAuth — the plugin never touches API tokens.
+
 ## Layout
 
-- `skills/*/SKILL.md` — the 9 skills
+- `skills/*/SKILL.md` — the 10 skills
 - `skills/setup/template-vault-claude.md` — the navigation doc `/vault:setup` installs into your vault
 - `references/resolve-project.md` — shared rules: vault root resolution, cwd → project matching, MCP-vs-file-tool access
 - `references/vault-writes.md` — shared rules: timestamps, frontmatter quoting, hub-note index insertion
