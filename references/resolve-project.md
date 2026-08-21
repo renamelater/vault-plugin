@@ -35,13 +35,20 @@ This applies to **self-authored** documents, not just ingested ones. Talking poi
 
 Living documents that get updated across sessions (a running question list, a requirements map) keep a plain descriptive filename with no timestamp prefix; point-in-time records keep the `YYYYMMDD-HHMM-` prefix.
 
-Skills name `obsidian_*` MCP tools (from mcp-obsidian). Any Obsidian MCP is **optional** — the vault is plain Markdown on disk. When a named tool is unavailable, use the equivalent tool from the Local REST API plugin's built-in MCP server (if connected), or plain file tools on `[vault]/...` paths:
+Skills name `obsidian_*` MCP tools, from the **mcp-obsidian** bridge (Route B in `/vault:connect-obsidian`). Any Obsidian MCP is **optional**: the vault is plain Markdown on disk. But two other setups are common, and the tool names differ in each, so map before you call.
 
-| MCP tool | Fallback |
-|---|---|
-| `obsidian_list_files_in_vault` / `obsidian_list_files_in_dir` | list the directory |
-| `obsidian_get_file_contents` | Read |
-| `obsidian_append_content` / `obsidian_patch_content` | Edit / Write |
-| `obsidian_simple_search` / `obsidian_complex_search` | Grep |
+**Check which setup you are on** by looking for `vault_read` (Local REST API built-in server, Route A) or `obsidian_get_file_contents` (mcp-obsidian, Route B) among your available tools. Tools appear prefixed in-session, e.g. `mcp__obsidian__vault_read`; match on the bare name. If a skill names a tool you do not have, find its row below and use the column for your setup.
 
-Both routes are equivalent; never skip a step because the MCP is missing.
+| mcp-obsidian (Route B) | REST API built-in server (Route A) | No MCP |
+|---|---|---|
+| `obsidian_list_files_in_vault` / `obsidian_list_files_in_dir` | `vault_list` | list the directory |
+| `obsidian_get_file_contents` | `vault_read` | Read |
+| `obsidian_append_content` | `vault_append` | Edit / Write |
+| `obsidian_patch_content` | `vault_patch` (targeting differs, see below) | Edit / Write |
+| `obsidian_simple_search` | `search_simple` | Grep |
+| `obsidian_complex_search` | `search_query` (JsonLogic over tags, frontmatter, path, mtime) | Grep |
+| (no equivalent) | `vault_get_document_map` (heading tree, block ids, version token) | Read |
+
+All three routes are equivalent in effect: never skip a step because the MCP is missing, and never substitute a weaker step for one you cannot find.
+
+One exception to the table: `vault_patch` is **not** a drop-in rename of `obsidian_patch_content`. It takes a different target syntax, and getting it wrong is silent, not an error. `vault-writes.md` gives the correct call for both.
