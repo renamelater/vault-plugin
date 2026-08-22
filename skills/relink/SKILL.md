@@ -38,38 +38,11 @@ Vault root, `[vault]` substitution, and file-access rules: `../../references/res
 - Check if `./CLAUDE.md` already exists in cwd
 - If it does, read it and tell the user: "There's already a CLAUDE.md here pointing at `[whatever vault path it has]`. Rewrite its vault sections to point at `[chosen-slug]`?"
 - Wait for confirmation. If they decline, stop.
-- **Preserve foreign sections.** Other tools write into CLAUDE.md too (e.g. Impeccable's "Design Context" section). When rewriting, replace ONLY the sections this skill owns (`## Context`, `## About this project`, `## Vault`, `## Code folder`, `## Rules`) and keep every other section intact, in place.
+- **Preserve foreign sections.** When rewriting, replace only the sections the template owns (listed in `../../references/template-project-claude.md`) and keep every other section intact, in place.
 
 ## Step 5: Write CLAUDE.md to the Current Working Directory
-Write `CLAUDE.md` to `./CLAUDE.md` (the cwd) with this content:
 
-```
-# [Project Name from hub note, or chosen-slug if it has no title]
-
-## Context
-Full project context lives in the Obsidian vault:
-`[vault]/[work or personal]/projects/[chosen-slug]/`
-
-Always read the vault hub note before starting work.
-Always read the most recent file in the vault sessions/ folder to see where we left off.
-
-## About this project
-[one line description from the hub note's "What is this" section, if present]
-
-## Vault
-- Overview: [vault]/[work or personal]/projects/[chosen-slug]/[hub-note-filename]
-- Sessions: [vault]/[work or personal]/projects/[chosen-slug]/sessions/
-- Specs: [vault]/[work or personal]/projects/[chosen-slug]/docs/specs/
-- PRDs: [vault]/[work or personal]/projects/[chosen-slug]/docs/prds/
-
-## Code folder
-[absolute path of cwd]
-
-## Rules
-- At the end of every session, run /vault:compress to save a session log
-- When a design decision is made, run /vault:spec to document it
-- When a product requirement is defined, run /vault:prd to document it
-```
+Write `./CLAUDE.md` (the cwd) from the block in `../../references/template-project-claude.md`, substituting its placeholders: `[bucket]` and `[slug]` from Step 2, `[hub-note-filename]` and `[Project Name]` from the hub note found in Step 3, `[one line description]` from the hub note's `## What is this` section if present, `[cwd]` is the current working directory.
 
 ## Step 6: Update the Hub Note with the Code Folder Path
 

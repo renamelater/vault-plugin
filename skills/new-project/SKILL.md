@@ -72,42 +72,16 @@ For code projects, create a `CLAUDE.md` at `./CLAUDE.md` (the current working di
 
 This skill assumes you're running it from inside Cursor (or another editor) with the code project folder already open. The CLAUDE.md should land in the folder you're currently in — DO NOT construct a path from the project name slug, and DO NOT create a new folder.
 
-**Guardrail — existing CLAUDE.md:** if `./CLAUDE.md` already exists, do NOT overwrite it. Tell the user what it currently points at and ask whether to (a) add/replace only the vault sections (`## Context`, `## About this project`, `## Vault`, `## Code folder`, `## Rules`) while preserving everything else in the file — other tools like Impeccable write their own sections into CLAUDE.md — or (b) leave it alone. If the folder is already linked to another vault project, suggest `/vault:relink` instead.
+**Guardrail — existing CLAUDE.md:** if `./CLAUDE.md` already exists, do NOT overwrite it. Tell the user what it currently points at and ask whether to (a) add/replace only the sections the template owns (listed in `../../references/template-project-claude.md`) while preserving everything else in the file, or (b) leave it alone. If the folder is already linked to another vault project, suggest `/vault:relink` instead.
 
 **Guardrails — before writing, check the current working directory:**
 - If cwd is `[vault]` or anywhere inside it → STOP. Tell the user: "It looks like you're running this from the Obsidian Vault, not your code project. Open your code folder in Cursor and run /vault:new-project from there." Skip this step entirely.
 - If cwd is the home directory → STOP with the same warning.
 - Otherwise → write `CLAUDE.md` to the current working directory.
 
-### CLAUDE.md content:
-```
-# [Project Name]
+### CLAUDE.md content
 
-## Context
-Full project context lives in the Obsidian vault:
-`[vault]/[work or personal]/projects/[project-name]/`
-
-Always read the vault hub note before starting work.
-Always read the most recent file in the vault sessions/ folder to see where we left off.
-
-## About this project
-[one line description]
-
-## Vault
-- Overview: [vault]/[work or personal]/projects/[project-name]/[project-name].md
-- Sessions: [vault]/[work or personal]/projects/[project-name]/sessions/
-- Specs: [vault]/[work or personal]/projects/[project-name]/docs/specs/
-- PRDs: [vault]/[work or personal]/projects/[project-name]/docs/prds/
-
-## Code folder
-[absolute path of cwd]
-
-## Rules
-- At the end of every session, run /vault:compress to save a session log
-- When a design decision is made, run /vault:spec to document it
-- When a product requirement is defined, run /vault:prd to document it
-- Documents written for this project (meeting prep, question lists, research, proposals, working notes) go in the vault under docs/ in the matching type folder (docs/prep/, docs/research/, docs/notes/), never at the vault project root
-```
+Copy the block from `../../references/template-project-claude.md`, substituting its placeholders: `[bucket]` and `[slug]` from Step 1, `[one line description]` from Step 1, `[hub-note-filename]` is `[slug].md`, `[cwd]` is the current working directory.
 
 ## Step 5: Confirm
 Tell the user:

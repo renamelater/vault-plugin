@@ -35,6 +35,8 @@ This applies to **self-authored** documents, not just ingested ones. Talking poi
 
 Living documents that get updated across sessions (a running question list, a requirements map) keep a plain descriptive filename with no timestamp prefix; point-in-time records keep the `YYYYMMDD-HHMM-` prefix.
 
+## Tool access
+
 Skills name `obsidian_*` MCP tools, from the **mcp-obsidian** bridge (Route B in `/vault:connect-obsidian`). Any Obsidian MCP is **optional**: the vault is plain Markdown on disk. But two other setups are common, and the tool names differ in each, so map before you call.
 
 **Check which setup you are on** by looking for `vault_read` (Local REST API built-in server, Route A) or `obsidian_get_file_contents` (mcp-obsidian, Route B) among your available tools. Tools appear prefixed in-session, e.g. `mcp__obsidian__vault_read`; match on the bare name. If a skill names a tool you do not have, find its row below and use the column for your setup.
