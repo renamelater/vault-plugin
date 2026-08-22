@@ -8,7 +8,7 @@ Works on **your** vault: run `/vault:setup` once and the skills bootstrap the st
 
 ```
 /plugin marketplace add renamelater/vault-plugin
-/plugin install vault@morriswang
+/plugin install vault@renamelater
 ```
 
 Then, in any Claude Code session:
@@ -62,5 +62,5 @@ User-invoked only — these carry `disable-model-invocation`, which hides them f
 Releases are explicit. `.claude-plugin/plugin.json` carries a `version` field that is bumped when a release is cut, and each release is tagged in git. Commits between releases do not change the version.
 
 ```
-/plugin update vault@morriswang
+/plugin update vault@renamelater
 ```

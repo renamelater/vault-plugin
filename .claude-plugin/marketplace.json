@@ -1,7 +1,7 @@
 {
-  "name": "morriswang",
+  "name": "renamelater",
   "owner": { "name": "Morris Wang", "email": "contact@morriswang.com" },
-  "description": "Morris's personal Claude Code plugins.",
+  "description": "renamelater's Claude Code plugins.",
   "plugins": [
     {
       "name": "vault",
