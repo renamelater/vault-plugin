@@ -7,17 +7,9 @@ description: Save a PRD into the Obsidian vault. Use when the user says "prd", o
 
 When invoked, do the following:
 
-## Step 1: Determine the Vault Project (in order)
+## Step 1: Resolve the Vault Project
 
-Follow `../../references/resolve-project.md` (relative to this skill's folder) to resolve the **bucket** and **project slug** — read that file now, do not guess the project. If it resolves, continue to Step 2. If no match:
-
-### No match found
-Stop and tell the user:
-- "I don't see a project for this PRD. Two options:
-   1. Run `/vault:new-project` first to set one up, then re-run `/vault:prd`
-   2. Use an existing project I missed — tell me which one"
-- **Never invoke `/vault:new-project` from this skill** — that's the user's call to make explicitly
-- If they pick option 2, use the project they named and continue
+Read `../../references/resolve-project.md` (relative to this skill's folder) before touching the vault: it owns the vault root and `[vault]` substitution, project resolution (**bucket** and **slug**), file placement, tool access, and no-match handling. Resolve the bucket and slug with it now. If they resolve, continue to Step 2. No match: follow its no-match handling.
 
 ## Step 2: Find the Hub Note and Related Specs
 - Locate the project's **hub note** (defined in the shared reference from Step 1)

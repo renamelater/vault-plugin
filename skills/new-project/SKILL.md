@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 When invoked, do the following:
 
-Vault root, `[vault]` substitution, and file-access rules: `../../references/resolve-project.md` — read it before touching the vault.
+Read `../../references/resolve-project.md` (relative to this skill's folder) before touching the vault: it owns the vault root and `[vault]` substitution, project resolution (**bucket** and **slug**), file placement, tool access, and no-match handling.
 
 ## Step 1: Ask Four Questions
 Ask all four at once:

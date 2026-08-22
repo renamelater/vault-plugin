@@ -31,29 +31,16 @@ Identify what kind of content this is. Use these **canonical type names** — ne
 
 **Classification approach:** make your best guess and tell the user what you picked in the confirmation step. If the user disagrees, they'll correct and you'll move the file.
 
-## Step 3: Determine the Vault Project (in order)
+## Step 3: Resolve the Vault Project
 
-Follow `../../references/resolve-project.md` (relative to this skill's folder) to resolve the **bucket** and **project slug** — read that file now, do not guess the project. If it resolves, sanity-check the match before continuing: when the content's subject clearly belongs to a different vault project than the resolved one (team content ingested from an unrelated repo, a Notion URL pasted mid-task), name both projects and confirm the target before filing. Then continue to Step 4. If no match (or the cwd isn't a project directory):
+Read `../../references/resolve-project.md` (relative to this skill's folder) before touching the vault: it owns the vault root and `[vault]` substitution, project resolution (**bucket** and **slug**), file placement, tool access, and no-match handling. Resolve the bucket and slug with it now. If they resolve, sanity-check the match before continuing: when the content's subject clearly belongs to a different vault project than the resolved one (team content ingested from an unrelated repo, a Notion URL pasted mid-task), name both projects and confirm the target before filing. Then continue to Step 4.
 
-### No match found
-Stop and tell the user:
-- "I don't see a project for this. A few options:
-   1. Run `/vault:new-project` first to set one up, then re-run `/vault:ingest`
-   2. Route to `work/general/[type-folder]/` (general work content, no project)
-   3. Route to `personal/general/[type-folder]/` (general personal content, no project)
-   4. Use an existing project I missed — tell me which one"
-- **Never invoke `/vault:new-project` from this skill** — that's the user's call to make explicitly
-- If they pick option 2 or 3, skip the `docs/` nesting in Step 4 — route directly to `work/general/[type-folder]/` or `personal/general/[type-folder]/`
-- If they pick option 4, use the project they named and continue
+No match (or the cwd isn't a project directory): follow its no-match handling, adding two options, route to `work/general/[type-folder]/` or to `personal/general/[type-folder]/` (content with no project). On either, Step 4 targets that folder directly with no `docs/` nesting.
 
 ## Step 4: Determine or Create the Target Folder
 
-- Target folder path: `[project-path]/docs/[folder-name]/` (using the canonical folder name from Step 2, nested under `docs/` alongside `specs/` and `prds/`)
-- Use `obsidian_list_files_in_vault` to check if the folder already exists
-- **If it exists** → use it
-- **If it doesn't exist** → create it by saving the new file directly (Obsidian will create the folder path on write)
-- **NEVER create a parallel folder with a different name** (e.g., don't create `meetings/` if `transcripts/` already exists for the same content type)
-- **NEVER place ingested content at the project root or loose at `docs/` root** — it always goes inside the right `docs/[folder-name]/`
+- Target folder: `[project-path]/docs/[folder-name]/`, the canonical folder name from Step 2, nested under `docs/` alongside `specs/` and `prds/`. The canonical name is the folder whether or not it exists yet: one content type, one folder.
+- Use `obsidian_list_files_in_vault` to note whether the folder already exists (Step 12 reports new folders). Saving the file creates the path on write; there is no separate create step.
 
 ## Step 5: Read the Write Rules
 
@@ -61,38 +48,7 @@ Read `../../references/vault-writes.md` now and follow it for the rest of this r
 
 ## Step 6: Extract Structure and Snippets
 
-Parse the content for its important elements. What counts as "important" depends on the type:
-
-**Transcripts:**
-- Attendees (infer from speaker labels)
-- Key decisions
-- Action items with owners and dates
-- Direct quotes worth preserving verbatim (decisions, precise phrasing, disagreements, numbers, commitments)
-
-**Research notes:**
-- Sources / references
-- Key findings
-- Implications
-- Direct quotes from sources worth preserving
-
-**Articles:**
-- Source URL or citation
-- Main thesis / key takeaways
-- Quotable passages
-
-**Interviews:**
-- Interviewee name and context
-- Key insights
-- Verbatim quotes
-
-**Prep docs:**
-- The meeting/call, who it's with, and the goal
-- Discussion points or questions, in priority order
-- Background facts or evidence to have on hand
-
-**Brainstorms / feedback / notes:**
-- Core ideas or themes
-- Any standout quotes or data
+Read `types.md` in this skill's folder and extract what it lists for the type from Step 2.
 
 **The snippet rule:** Preserve verbatim only what's worth referencing later — direct quotes capturing decisions, opinions, or precise phrasing; specific numbers, dates, names, or commitments; nuances a summary would flatten. Skip filler, restatements, and noise. Never save the entire raw content — this is a curated ingest, not an archive.
 

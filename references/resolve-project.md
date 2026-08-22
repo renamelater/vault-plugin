@@ -23,7 +23,16 @@ Resolves the **bucket** (`work` or `personal`) and **project slug** for the curr
 
 Prefer the CLAUDE.md pointer over folder-name matching — it's the source of truth after `/vault:relink`.
 
-If neither resolves, return to the calling skill's no-match handling.
+If neither resolves, follow **No match** below.
+
+### No match
+
+Stop and offer the user a numbered list. Every skill's list carries these two; a skill adds its own options where it says so:
+
+1. Run `/vault:new-project` to set one up, then re-run this skill
+2. Name an existing vault project to use
+
+`/vault:new-project` and `/vault:relink` are user-invoked: they run only when the user types the command as its own message, so offer them and wait. When the user names a project, continue with it.
 
 The project **hub note** — its status and index file — is `[vault]/[bucket]/projects/[slug]/[slug].md`, falling back to `README.md` in older projects.
 

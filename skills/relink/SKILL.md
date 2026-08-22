@@ -12,7 +12,7 @@ This skill **does not create a new vault project**. If no vault project exists y
 
 When invoked, do the following:
 
-Vault root, `[vault]` substitution, and file-access rules: `../../references/resolve-project.md` — read it before touching the vault.
+Read `../../references/resolve-project.md` (relative to this skill's folder) before touching the vault: it owns the vault root and `[vault]` substitution, project resolution (**bucket** and **slug**), file placement, tool access, and no-match handling.
 
 ## Step 1: Confirm the Code Folder
 - Read the current working directory (`cwd`)
@@ -62,6 +62,5 @@ Tell the user:
 - `/vault:compress` from this folder will now find the vault project even though the folder names differ
 
 ## Rules
-- Never invoke `/vault:new-project` from this skill — if the vault project doesn't exist, tell the user to run it themselves
 - Never modify the cwd folder name or the vault slug — this skill only writes link files
 - Both writes (CLAUDE.md and hub note) must succeed; if one fails, tell the user which one

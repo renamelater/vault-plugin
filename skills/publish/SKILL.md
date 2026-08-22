@@ -7,7 +7,7 @@ description: Publish a vault document to Notion. Use when the user says "publish
 
 When invoked, do the following:
 
-Vault root, `[vault]` substitution, and file-access rules: `../../references/resolve-project.md` — read it before touching the vault. Notion tool access and the no-tools branch: `../../references/notion.md` — read it now too.
+Read `../../references/resolve-project.md` (relative to this skill's folder) before touching the vault: it owns the vault root and `[vault]` substitution, project resolution (**bucket** and **slug**), file placement, tool access, and no-match handling. Notion tool access and the no-tools branch: `../../references/notion.md` — read it now too.
 
 ## Step 1: Identify the Document
 

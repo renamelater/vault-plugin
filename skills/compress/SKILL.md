@@ -7,18 +7,9 @@ description: Compress the session into the Obsidian vault. Use when the user say
 
 When invoked, do the following:
 
-## Step 1: Determine the Vault Project (in order)
+## Step 1: Resolve the Vault Project
 
-Follow `../../references/resolve-project.md` (relative to this skill's folder) to resolve the **bucket** and **project slug** — read that file now, do not guess the project. If it resolves, continue to Step 2. If no match:
-
-### No match found
-Stop and tell the user:
-- "I can't find a vault project for this folder. Three options:
-  1. Run `/vault:new-project` to set one up, then re-run `/vault:compress`
-  2. Run `/vault:relink` to point this folder at an existing vault project
-  3. Tell me which existing vault project to save under"
-- **Never invoke `/vault:new-project` or `/vault:relink` from this skill** — those are the user's calls to make explicitly
-- If they pick option 3, use the project they name and continue
+Read `../../references/resolve-project.md` (relative to this skill's folder) before touching the vault: it owns the vault root and `[vault]` substitution, project resolution (**bucket** and **slug**), file placement, tool access, and no-match handling. Resolve the bucket and slug with it now. If they resolve, continue to Step 2. No match: follow its no-match handling, adding a third option, `/vault:relink` to point this folder at an existing vault project.
 
 ## Step 2: Confirm the Target
 Briefly tell the user which vault project this session will be saved under (e.g. "Saving to `personal/projects/portfolio-site-mw/sessions/`") so they can catch a wrong match before anything is written.
@@ -82,14 +73,12 @@ tags:
 
 ## Step 7: Save to Sessions Folder
 
-**Path guardrail — READ BEFORE WRITING:** This skill ALWAYS writes to the project's `sessions/` subfolder. NEVER write to `docs/prds/` or `docs/specs/`, even if the session was primarily about PRD or spec work. Session logs document the *activity*; specs and PRDs document the *artifacts*. If the target path you are about to use contains `/docs/prds/` or `/docs/specs/`, stop and switch it to `/sessions/`.
-
 Before constructing the filename or the `date:` field, read `../../references/vault-writes.md` and follow its Timestamps rule — it also owns the hub-note insertion procedure used in Step 8.
 
 - Use `obsidian_append_content` to save the note
 - Target path: `[bucket]/projects/[project-slug]/sessions/YYYYMMDD-HHMM-short-title.md`
   - Example: `work/projects/selective-notification/sessions/20260413-1045-notification-detail-layout.md`
-- Before writing, verify the path contains `/sessions/` and NOT `/docs/`
+- A session log records the *activity*, so it lands in `sessions/` whatever the session was about, including one spent entirely on spec or PRD work (those artifacts have their own skills and folders). Done when the path contains `/sessions/`.
 
 ## Step 8: Update the Hub Note
 
