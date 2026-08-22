@@ -7,8 +7,6 @@ description: Connect Obsidian's Local REST API to Claude Code as an MCP server. 
 
 Guides the user through installing Obsidian's Local REST API plugin and wiring it to Claude Code as an MCP server. Remind the user up front: this is **optional** — the vault skills work with plain file access; the MCP adds Obsidian's own search index and API access.
 
-When invoked, do the following:
-
 ## Step 1: Check What's Already There
 
 Run these checks before asking the user to do anything:

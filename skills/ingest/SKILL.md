@@ -5,8 +5,6 @@ description: Ingest external content into the Obsidian vault. Use when the user 
 
 # Ingest External Content into the Vault
 
-When invoked, do the following:
-
 ## Step 1: Read the Content
 
 - The user will paste content directly into the conversation, or attach/reference a file (read attached files from wherever the current environment surfaces them)

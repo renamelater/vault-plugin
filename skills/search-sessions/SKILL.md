@@ -5,8 +5,6 @@ description: Search past sessions, specs, and PRDs in the Obsidian vault. Use wh
 
 # Search Past Sessions in Obsidian
 
-When invoked, do the following:
-
 Read `../../references/resolve-project.md` (relative to this skill's folder) before touching the vault: it owns the vault root and `[vault]` substitution, project resolution (**bucket** and **slug**), file placement, tool access, and no-match handling.
 
 ## Step 1: Determine Search Scope
@@ -45,6 +43,6 @@ Show a numbered list:
 - Session files chain via the `previous:` frontmatter field — follow it to walk further back in time
 
 ## Rules
-- Keep results concise — title and date only unless asked for more
+- Show title and date only unless asked for more
 - Never show more than 10 results at once
 - If no results found, say so clearly and suggest alternatives

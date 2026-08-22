@@ -1,13 +1,12 @@
 ---
 name: setup
-description: Set up the Obsidian second-brain vault structure. Use when the user wants to initialize their vault for these skills, or another vault skill finds the expected structure missing.
+description: Set up the Obsidian second-brain vault structure these skills depend on.
+disable-model-invocation: true
 ---
 
 # Set Up the Second-Brain Vault
 
 Bootstraps the folder structure and navigation doc these skills depend on, inside the user's own Obsidian vault.
-
-When invoked, do the following:
 
 ## Step 1: Locate the Vault
 

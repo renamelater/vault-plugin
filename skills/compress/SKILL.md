@@ -5,8 +5,6 @@ description: Compress the session into the Obsidian vault. Use when the user say
 
 # Compress & Save Session to Obsidian
 
-When invoked, do the following:
-
 ## Step 1: Resolve the Vault Project
 
 Read `../../references/resolve-project.md` (relative to this skill's folder) before touching the vault: it owns the vault root and `[vault]` substitution, project resolution (**bucket** and **slug**), file placement, tool access, and no-match handling. Resolve the bucket and slug with it now. If they resolve, continue to Step 2. No match: follow its no-match handling, adding a third option, `/vault:relink` to point this folder at an existing vault project.
@@ -91,7 +89,5 @@ Before constructing the filename or the `date:` field, read `../../references/va
 - Call out any open items to follow up on, and any action items archived in Step 5
 
 ## Rules
-- Keep summaries concise but useful for future reference
-- Include enough detail that someone reading it later understands what happened
 - Strip verbose tool outputs, stack traces, and repetitive back-and-forth
 - Focus on WHAT was done, WHY, and any key code or commands worth remembering

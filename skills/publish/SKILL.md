@@ -1,11 +1,9 @@
 ---
 name: publish
-description: Publish a vault document to Notion. Use when the user says "publish", wants a vault file shared to Notion, or wants an already-published page refreshed after vault edits.
+description: Publish a vault document to Notion. Use when the user says "publish", or wants a vault document created or refreshed in Notion.
 ---
 
 # Publish a Vault Document to Notion
-
-When invoked, do the following:
 
 Read `../../references/resolve-project.md` (relative to this skill's folder) before touching the vault: it owns the vault root and `[vault]` substitution, project resolution (**bucket** and **slug**), file placement, tool access, and no-match handling. Notion tool access and the no-tools branch: `../../references/notion.md` — read it now too.
 

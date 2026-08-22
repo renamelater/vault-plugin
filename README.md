@@ -35,13 +35,13 @@ Model-invoked — these fire automatically when the situation matches (or by nam
 | `/vault:spec` | A design decision was settled — documents it |
 | `/vault:prd` | Product requirements were defined — documents them |
 | `/vault:search-sessions` | Recalling what was done or decided in a past session |
-| `/vault:setup` | First-time vault initialization |
 | `/vault:connect-obsidian` | Wiring up the optional Obsidian MCP (guided install of the Local REST API plugin) |
 
 User-invoked only — these carry `disable-model-invocation`, which hides them from the model entirely. Claude never fires them on its own and won't list them among its skills. Send the command as its own message; mentioned mid-sentence it arrives as plain text, and Claude — seeing no such skill — may tell you it doesn't exist:
 
 | Skill | Use |
 |---|---|
+| `/vault:setup` | First-time vault initialization |
 | `/vault:new-project` | Set up a new work or personal project (code or knowledge-only) |
 | `/vault:relink` | Point a code folder at an existing vault project |
 

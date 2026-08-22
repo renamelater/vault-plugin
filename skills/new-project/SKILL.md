@@ -6,8 +6,6 @@ disable-model-invocation: true
 
 # New Project Setup
 
-When invoked, do the following:
-
 Read `../../references/resolve-project.md` (relative to this skill's folder) before touching the vault: it owns the vault root and `[vault]` substitution, project resolution (**bucket** and **slug**), file placement, tool access, and no-match handling.
 
 ## Step 1: Ask Four Questions
@@ -16,7 +14,7 @@ Ask all four at once:
 1. "Work or personal?"
 2. "What's the project name?" (use lowercase-with-hyphens format — this names the **vault** folder, not the code folder)
 3. "One line — what is this project?"
-4. "Code project or knowledge-only?" (code = there's a code folder Claude works in, e.g. a Cursor project; knowledge-only = research/notes live entirely in the vault, e.g. home-theater)
+4. "Code project or knowledge-only?" (code = there's a code folder Claude works in, e.g. a repo open in your editor; knowledge-only = research/notes live entirely in the vault, e.g. home-theater)
 
 ## Step 2: Get the Real Current Time
 
@@ -70,12 +68,12 @@ Active
 
 For code projects, create a `CLAUDE.md` at `./CLAUDE.md` (the current working directory) using direct file creation (not Obsidian MCP — this file lives in the code project, not the vault).
 
-This skill assumes you're running it from inside Cursor (or another editor) with the code project folder already open. The CLAUDE.md should land in the folder you're currently in — DO NOT construct a path from the project name slug, and DO NOT create a new folder.
+This skill assumes the current working directory is the code project folder. The CLAUDE.md should land in the folder you're currently in — DO NOT construct a path from the project name slug, and DO NOT create a new folder.
 
 **Guardrail — existing CLAUDE.md:** if `./CLAUDE.md` already exists, do NOT overwrite it. Tell the user what it currently points at and ask whether to (a) add/replace only the sections the template owns (listed in `../../references/template-project-claude.md`) while preserving everything else in the file, or (b) leave it alone. If the folder is already linked to another vault project, suggest `/vault:relink` instead.
 
 **Guardrails — before writing, check the current working directory:**
-- If cwd is `[vault]` or anywhere inside it → STOP. Tell the user: "It looks like you're running this from the Obsidian Vault, not your code project. Open your code folder in Cursor and run /vault:new-project from there." Skip this step entirely.
+- If cwd is `[vault]` or anywhere inside it → STOP. Tell the user: "It looks like you're running this from the Obsidian Vault, not your code project. Open your code folder and run /vault:new-project from there." Skip this step entirely.
 - If cwd is the home directory → STOP with the same warning.
 - Otherwise → write `CLAUDE.md` to the current working directory.
 

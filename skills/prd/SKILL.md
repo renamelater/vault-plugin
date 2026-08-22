@@ -5,8 +5,6 @@ description: Save a PRD into the Obsidian vault. Use when the user says "prd", o
 
 # Save PRD / Product Requirements Document
 
-When invoked, do the following:
-
 ## Step 1: Resolve the Vault Project
 
 Read `../../references/resolve-project.md` (relative to this skill's folder) before touching the vault: it owns the vault root and `[vault]` substitution, project resolution (**bucket** and **slug**), file placement, tool access, and no-match handling. Resolve the bucket and slug with it now. If they resolve, continue to Step 2. No match: follow its no-match handling.
@@ -77,6 +75,5 @@ Before constructing the filename or the `date:` field, read `../../references/va
 - Show the exact file path
 
 ## Rules
-- Be concise — capture enough to understand the requirements later without over-documenting
 - If the user provides the content, don't ask questions — just format and save it
 - Omit any sections that aren't relevant

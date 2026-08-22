@@ -10,8 +10,6 @@ Use this skill when the code folder name and the vault project slug don't match 
 
 This skill **does not create a new vault project**. If no vault project exists yet, tell the user to run `/vault:new-project` first.
 
-When invoked, do the following:
-
 Read `../../references/resolve-project.md` (relative to this skill's folder) before touching the vault: it owns the vault root and `[vault]` substitution, project resolution (**bucket** and **slug**), file placement, tool access, and no-match handling.
 
 ## Step 1: Confirm the Code Folder
@@ -20,7 +18,7 @@ Read `../../references/resolve-project.md` (relative to this skill's folder) bef
 - Wait for confirmation before continuing
 
 **Guardrails — before continuing, check the cwd:**
-- If cwd is `[vault]` or anywhere inside it → STOP. Tell the user: "You're in the Obsidian Vault, not a code folder. Open your code folder in Cursor and run /vault:relink from there."
+- If cwd is `[vault]` or anywhere inside it → STOP. Tell the user: "You're in the Obsidian Vault, not a code folder. Open your code folder and run /vault:relink from there."
 - If cwd is the home directory → STOP with the same warning.
 
 ## Step 2: List Existing Vault Projects
