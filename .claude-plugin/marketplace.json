@@ -1,12 +1,24 @@
 {
   "name": "renamelater",
-  "owner": { "name": "Morris Wang", "email": "contact@morriswang.com" },
+  "owner": {
+    "name": "Morris Wang",
+    "email": "contact@morriswang.com"
+  },
   "description": "renamelater's Claude Code plugins.",
   "plugins": [
     {
       "name": "vault",
       "source": "./",
       "description": "Obsidian second-brain workflow: compress sessions, ingest content, save specs and PRDs, search history, manage projects.",
+      "strict": false
+    },
+    {
+      "name": "uxdesign",
+      "source": {
+        "source": "github",
+        "repo": "renamelater/uxdesign"
+      },
+      "description": "UX and AI product design skills: design-review router, AI interaction patterns hub, research, personas, journey maps, prioritization.",
       "strict": false
     }
   ]
