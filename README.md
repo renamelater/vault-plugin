@@ -53,8 +53,8 @@ User-invoked only — these carry `disable-model-invocation`, which hides them f
 
 - `skills/*/SKILL.md` — the 10 skills
 - `skills/setup/template-vault-claude.md` — the navigation doc `/vault:setup` installs into your vault
-- `references/resolve-project.md` — shared rules: vault root resolution, cwd → project matching, MCP-vs-file-tool access
-- `references/vault-writes.md` — shared rules: timestamps, frontmatter quoting, hub-note index insertion
+- `references/resolve-project.md` — the fallback: vault root resolution when a project `CLAUDE.md` can't supply it, file placement, and the tool map for setups without the built-in MCP server
+- `references/vault-writes.md` — the hub-note index line and how each setup inserts it
 - `references/template-project-claude.md` — the `CLAUDE.md` that `/vault:new-project` and `/vault:relink` write into a code folder
 
 ## Updating

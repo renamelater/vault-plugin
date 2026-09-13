@@ -43,7 +43,7 @@ Create these folders and files, **skipping anything that already exists — neve
 
 ## Step 3: Write the Navigation Doc
 
-- Copy `template-vault-claude.md` (in this skill's folder) to `[vault]/CLAUDE.md`.
+- Copy `${CLAUDE_PLUGIN_ROOT}/skills/setup/template-vault-claude.md` to `[vault]/CLAUDE.md`.
 - If `[vault]/CLAUDE.md` already exists, do NOT overwrite — show the user a diff summary and ask whether to merge the template's sections in or leave theirs alone.
 - Personalize the `## Who I am` section: ask the user for a one-line description of themselves (role, what they work on) and insert it. If they'd rather skip, leave the placeholder.
 

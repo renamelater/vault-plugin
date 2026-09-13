@@ -19,8 +19,7 @@ Placeholders:
 Full project context lives in the Obsidian vault:
 `[vault]/[bucket]/projects/[slug]/`
 
-Always read the vault hub note before starting work.
-Always read the most recent file in the vault sessions/ folder to see where we left off.
+At session start, read the hub note, then the session file named by the newest entry under its `## Sessions` (filenames lead with a `YYYYMMDD-HHMM` stamp). The index already names that file, so the session opens on those two reads.
 
 ## About this project
 [one line description]

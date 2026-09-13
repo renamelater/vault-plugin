@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # New Project Setup
 
-Read `../../references/resolve-project.md` (relative to this skill's folder) before touching the vault: it owns the vault root and `[vault]` substitution, project resolution (**bucket** and **slug**), file placement, tool access, and no-match handling.
+Read `${CLAUDE_PLUGIN_ROOT}/references/resolve-project.md` before touching the vault: it owns the vault root and `[vault]` substitution, project resolution (**bucket** and **slug**), file placement, tool access, and no-match handling.
 
 ## Step 1: Ask Four Questions
 Ask all four at once:
@@ -25,7 +25,7 @@ date '+%Y-%m-%d'
 ```
 
 ## Step 3: Create Vault Structure
-Based on the answers, use `obsidian_append_content` to create the following files:
+Based on the answers, use `vault_append` to create the following files:
 
 - `[work or personal]/projects/[project-name]/[project-name].md`  ← the **hub note**, named after the project so `[[project-name]]` links resolve. NEVER name it `README.md`.
 - `[work or personal]/projects/[project-name]/sessions/.keep.md`
@@ -70,7 +70,7 @@ For code projects, create a `CLAUDE.md` at `./CLAUDE.md` (the current working di
 
 This skill assumes the current working directory is the code project folder. The CLAUDE.md should land in the folder you're currently in — DO NOT construct a path from the project name slug, and DO NOT create a new folder.
 
-**Guardrail — existing CLAUDE.md:** if `./CLAUDE.md` already exists, do NOT overwrite it. Tell the user what it currently points at and ask whether to (a) add/replace only the sections the template owns (listed in `../../references/template-project-claude.md`) while preserving everything else in the file, or (b) leave it alone. If the folder is already linked to another vault project, suggest `/vault:relink` instead.
+**Guardrail — existing CLAUDE.md:** if `./CLAUDE.md` already exists, do NOT overwrite it. Tell the user what it currently points at and ask whether to (a) add/replace only the sections the template owns (listed in `${CLAUDE_PLUGIN_ROOT}/references/template-project-claude.md`) while preserving everything else in the file, or (b) leave it alone. If the folder is already linked to another vault project, suggest `/vault:relink` instead.
 
 **Guardrails — before writing, check the current working directory:**
 - If cwd is `[vault]` or anywhere inside it → STOP. Tell the user: "It looks like you're running this from the Obsidian Vault, not your code project. Open your code folder and run /vault:new-project from there." Skip this step entirely.
@@ -79,7 +79,7 @@ This skill assumes the current working directory is the code project folder. The
 
 ### CLAUDE.md content
 
-Copy the block from `../../references/template-project-claude.md`, substituting its placeholders: `[bucket]` and `[slug]` from Step 1, `[one line description]` from Step 1, `[hub-note-filename]` is `[slug].md`, `[cwd]` is the current working directory.
+Copy the block from `${CLAUDE_PLUGIN_ROOT}/references/template-project-claude.md`, substituting its placeholders: `[bucket]` and `[slug]` from Step 1, `[one line description]` from Step 1, `[hub-note-filename]` is `[slug].md`, `[cwd]` is the current working directory.
 
 ## Step 5: Confirm
 Tell the user:

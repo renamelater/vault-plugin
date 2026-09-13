@@ -1,6 +1,6 @@
 # Ingest Types: What to Extract
 
-Read from `SKILL.md` Step 6. Each list is what counts as important for that type; the snippet rule in `SKILL.md` governs how much of it is preserved verbatim.
+Read from `SKILL.md` Step 4. Each list is what counts as important for that type; the snippet rule in `SKILL.md` governs how much of it is preserved verbatim.
 
 **Transcripts:**
 - Attendees (infer from speaker labels)

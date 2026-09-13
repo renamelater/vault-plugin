@@ -10,7 +10,7 @@ Use this skill when the code folder name and the vault project slug don't match 
 
 This skill **does not create a new vault project**. If no vault project exists yet, tell the user to run `/vault:new-project` first.
 
-Read `../../references/resolve-project.md` (relative to this skill's folder) before touching the vault: it owns the vault root and `[vault]` substitution, project resolution (**bucket** and **slug**), file placement, tool access, and no-match handling.
+Read `${CLAUDE_PLUGIN_ROOT}/references/resolve-project.md` before touching the vault: it owns the vault root and `[vault]` substitution, project resolution (**bucket** and **slug**), file placement, tool access, and no-match handling.
 
 ## Step 1: Confirm the Code Folder
 - Read the current working directory (`cwd`)
@@ -22,7 +22,7 @@ Read `../../references/resolve-project.md` (relative to this skill's folder) bef
 - If cwd is the home directory → STOP with the same warning.
 
 ## Step 2: List Existing Vault Projects
-- Use `obsidian_list_files_in_vault` to list folders under `work/projects/` and `personal/projects/`
+- `vault_list` the folders under `work/projects/` and `personal/projects/`
 - Show the user the list and ask: "Which vault project should this folder link to?"
 - They'll respond with the slug (e.g. `portfolio-site-mw`) and optionally `work` or `personal` if it's ambiguous
 
@@ -36,11 +36,11 @@ Read `../../references/resolve-project.md` (relative to this skill's folder) bef
 - Check if `./CLAUDE.md` already exists in cwd
 - If it does, read it and tell the user: "There's already a CLAUDE.md here pointing at `[whatever vault path it has]`. Rewrite its vault sections to point at `[chosen-slug]`?"
 - Wait for confirmation. If they decline, stop.
-- **Preserve foreign sections.** When rewriting, replace only the sections the template owns (listed in `../../references/template-project-claude.md`) and keep every other section intact, in place.
+- **Preserve foreign sections.** When rewriting, replace only the sections the template owns (listed in `${CLAUDE_PLUGIN_ROOT}/references/template-project-claude.md`) and keep every other section intact, in place.
 
 ## Step 5: Write CLAUDE.md to the Current Working Directory
 
-Write `./CLAUDE.md` (the cwd) from the block in `../../references/template-project-claude.md`, substituting its placeholders: `[bucket]` and `[slug]` from Step 2, `[hub-note-filename]` and `[Project Name]` from the hub note found in Step 3, `[one line description]` from the hub note's `## What is this` section if present, `[cwd]` is the current working directory.
+Write `./CLAUDE.md` (the cwd) from the block in `${CLAUDE_PLUGIN_ROOT}/references/template-project-claude.md`, substituting its placeholders: `[bucket]` and `[slug]` from Step 2, `[hub-note-filename]` and `[Project Name]` from the hub note found in Step 3, `[one line description]` from the hub note's `## What is this` section if present, `[cwd]` is the current working directory.
 
 ## Step 6: Update the Hub Note with the Code Folder Path
 

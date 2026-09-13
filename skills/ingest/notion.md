@@ -1,6 +1,6 @@
 # Notion Ingest
 
-Read when the content to ingest is a Notion URL. Tool access and the no-tools branch: `../../references/notion.md` — read it first.
+Read when the content to ingest is a Notion URL. Tool access and the no-tools branch live in `references/notion.md`, which `SKILL.md` Step 1 loads alongside this file.
 
 ## Fetch and detect the shape
 
@@ -19,7 +19,7 @@ A pasted URL commits this ingest to exactly one page — the pasted one. Everyth
 1. Ingest the pasted page itself as a plain page.
 2. Count its direct children from the already-fetched content — titles only; grandchildren stay unfetched.
 3. Report the count and a numbered list of titles. Ask which to include: specific numbers, none, or all. "All" is confirmed by restating the scale: "all 14 — that's 14 curated vault files."
-4. Each selected child runs the full pipeline (`SKILL.md` Steps 2–12) as its own ingest. A child that turns out to have children of its own fires this gate again at its level.
+4. Each selected child runs the full pipeline (`SKILL.md` Steps 2–7) as its own ingest. A child that turns out to have children of its own fires this gate again at its level.
 
 Fan-out happens only through a numbered selection the user just made.
 
@@ -31,8 +31,8 @@ One curated file for the whole database — never one file per row:
 - `## Rows` — a curated markdown table of the rows worth keeping; the snippet rule from `SKILL.md` applies. State the total row count and what was left out.
 - Type defaults to `note` unless the content clearly reads as another canonical type. Record the database URL in `source:`.
 
-Rejoin `SKILL.md` at Step 4 (target folder) with that type.
+Rejoin `SKILL.md` at Step 3 (target folder) with that type.
 
 ## Done
 
-Every selected item is filed and indexed, and the confirm step (`SKILL.md` Step 12) reports one line per file created.
+Every selected item is filed and indexed, and the confirm step (`SKILL.md` Step 7) reports one line per file created.
